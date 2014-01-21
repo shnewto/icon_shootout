@@ -170,9 +170,11 @@ end
 
 procedure run_regexdna(av)
    fin := open(av[1]) | stop("usage: regex-dna filename")
+
    sequ := ""
-   while i := !reads(fin) do
-      sequ ||:= i
+   while i := read(fin) do
+      sequ ||:= i || "\n"
+
 
    p := ">+[A-Za-z ]*\n+|\n+"
    ilen := *sequ
@@ -185,7 +187,7 @@ procedure run_regexdna(av)
       outs ||:= sequ[&pos:0]
    }
    sequ := copy(outs)
-   
+
    clen := *sequ
    
    variants := [["agggtaaa|tttaccct", var_1],
@@ -217,7 +219,7 @@ procedure run_regexdna(av)
    rL := list(*wL)
    every i := 1 to *wL do
       rL[i] := do_variants(wL[i]) 
-   
+
    every write(output, !rL)
    
    every e := !subst do {
