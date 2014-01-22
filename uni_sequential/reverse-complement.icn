@@ -45,8 +45,8 @@ procedure run_reversecomplement(argv)
 #   str := reads(fin, stat(argv[1]).size)
    str := "" 
 
-   while i := !reads(fin) do
-      str ||:= i
+   while i := read(fin) do
+      str ||:= i || "n"
 
    L := mapseq(str)  
    i := 1
