@@ -46,7 +46,7 @@ procedure run_reversecomplement(argv)
    str := "" 
 
    while i := read(fin) do
-      str ||:= i || "n"
+      str ||:= i || "\n"
 
    L := mapseq(str)  
    i := 1
