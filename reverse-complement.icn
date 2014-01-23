@@ -41,12 +41,15 @@ procedure mapseq(str)
 end
 
 procedure run_reversecomplement(argv)
+
    fin := open(argv[1])
-#   str := reads(fin, stat(argv[1]).size)
+
+   fp := open("wc -c " || argv[1], "p")
+   read(fp) ? siz := tab(upto(" "))
+
    str := "" 
 
-   while i := read(fin) do
-      str ||:= i || "\n"
+   str := reads(fin, integer(siz))
 
    L := mapseq(str)  
    i := 1

@@ -171,10 +171,13 @@ end
 procedure run_regexdna(av)
    fin := open(av[1]) | stop("usage: regex-dna filename")
 
-   sequ := ""
-   while i := read(fin) do
-      sequ ||:= i || "\n"
+   fp := open("wc -c " || av[1], "p")
 
+   read(fp) ? siz := tab(upto(" "))
+
+   str := "" 
+
+   sequ := reads(fin, integer(siz))
 
    p := ">+[A-Za-z ]*\n+|\n+"
    ilen := *sequ
