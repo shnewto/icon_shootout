@@ -46,8 +46,6 @@ procedure run_reversecomplement(argv)
    fp := open("wc -c " || argv[1], "p")
    read(fp) ? siz := tab(upto(" "))
 
-   str := "" 
-
    str := reads(fin, integer(siz))
 
    L := mapseq(str)  

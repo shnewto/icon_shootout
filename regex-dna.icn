@@ -175,8 +175,6 @@ procedure run_regexdna(av)
 
    read(fp) ? siz := tab(upto(" "))
 
-   str := "" 
-
    sequ := reads(fin, integer(siz))
    
    p := ">+[A-Za-z ]*\n+|\n+"
